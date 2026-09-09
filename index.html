@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Muskan Study</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f6f4ff;color:#222}
+header{padding:30px 20px;background:linear-gradient(135deg,#7657e8,#a889ff);color:#fff;border-radius:0 0 28px 28px}
+header h1{margin:0;font-size:32px}header p{margin:8px 0 0}.tag{display:inline-block;margin-top:12px;padding:7px 12px;background:#ffffff30;border-radius:20px;font-size:13px}
+main{max-width:680px;margin:auto;padding:18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.card,.section{background:#fff;border-radius:20px;padding:18px;box-shadow:0 5px 18px #00000012}.card{cursor:pointer}
+.icon{font-size:32px}.card h3{margin:9px 0 4px}.card p{margin:0;color:#666;font-size:14px}
+.section{display:none;margin-top:18px}.section.active{display:block}.back{border:0;padding:9px 13px;border-radius:10px;cursor:pointer}
+button{border:0;background:#7657e8;color:#fff;padding:11px 15px;border-radius:11px;cursor:pointer;margin:4px}
+input,textarea{width:100%;padding:12px;margin:7px 0;border:1px solid #ddd;border-radius:10px}
+footer{text-align:center;padding:25px;color:#777;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+<h1>🌸 Muskan Study</h1>
+<p>Learn • Practice • Grow</p>
+<span class="tag">Created & Designed by Muskan</span>
+</header>
+<main>
+<div id="home" class="grid">
+<div class="card" onclick="show('notes')"><div class="icon">📚</div><h3>Notes</h3><p>Subjects और chapter-wise notes</p></div>
+<div class="card" onclick="show('quiz')"><div class="icon">📝</div><h3>MCQ Quiz</h3><p>अपनी तैयारी check करें</p></div>
+<div class="card" onclick="show('time')"><div class="icon">⏰</div><h3>Study Time</h3><p>अपना timetable बनाएँ</p></div>
+<div class="card" onclick="show('doubt')"><div class="icon">💬</div><h3>Doubt Box</h3><p>अपने doubts लिखें</p></div>
+<div class="card" onclick="show('inclusive')"><div class="icon">🌈</div><h3>Inclusive Education</h3><p>हर student के लिए learning</p></div>
+<div class="card" onclick="show('about')"><div class="icon">👩‍🎓</div><h3>About</h3><p>App और creator के बारे में</p></div>
+</div>
+
+<div id="notes" class="section"><button class="back" onclick="home()">← Back</button><h2>📚 Notes</h2><p>Class 11 subjects के notes यहाँ जोड़े जा सकते हैं:</p><ul><li>History</li><li>Sociology</li><li>Hindi</li><li>English</li></ul></div>
+
+<div id="quiz" class="section"><button class="back" onclick="home()">← Back</button><h2>📝 MCQ Quiz</h2><p><b>समावेशी शिक्षा का उद्देश्य क्या है?</b></p><button onclick="quiz(false)">केवल कुछ बच्चों को पढ़ाना</button><button onclick="quiz(true)">सभी बच्चों को साथ सीखने का अवसर देना</button><p id="ans"></p></div>
+
+<div id="time" class="section"><button class="back" onclick="home()">← Back</button><h2>⏰ Study Timetable</h2><input placeholder="Subject"><input placeholder="Time"><button onclick="alert('Study plan saved!')">Save Plan</button></div>
+
+<div id="doubt" class="section"><button class="back" onclick="home()">← Back</button><h2>💬 Doubt Box</h2><textarea rows="5" placeholder="अपना doubt यहाँ लिखें..."></textarea><button onclick="alert('Your doubt has been saved!')">Submit</button></div>
+
+<div id="inclusive" class="section"><button class="back" onclick="home()">← Back</button><h2>🌈 Inclusive Education</h2><p>यह section अलग-अलग learning needs वाले students के लिए पढ़ाई को अधिक आसान और accessible बनाने के विचार पर आधारित है।</p></div>
+
+<div id="about" class="section"><button class="back" onclick="home()">← Back</button><h2>👩‍🎓 About Muskan Study</h2><p><b>App concept:</b> Students के लिए एक simple educational companion.</p><p><b>Created & Designed by:</b> Muskan</p></div>
+
+<footer>Muskan Study 🌸 | Learn Today, Lead Tomorrow</footer>
+</main>
+<script>
+function show(id){document.getElementById('home').style.display='none';document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active')}
+function home(){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById('home').style.display='grid'}
+function quiz(ok){document.getElementById('ans').textContent=ok?'✅ सही जवाब!':'❌ फिर से कोशिश करें।'}
+</script>
+</body>
+</html>
