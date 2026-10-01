@@ -2,55 +2,761 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Muskan Study</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🌸 Muskan Study</title>
+
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f6f4ff;color:#222}
-header{padding:30px 20px;background:linear-gradient(135deg,#7657e8,#a889ff);color:#fff;border-radius:0 0 28px 28px}
-header h1{margin:0;font-size:32px}header p{margin:8px 0 0}.tag{display:inline-block;margin-top:12px;padding:7px 12px;background:#ffffff30;border-radius:20px;font-size:13px}
-main{max-width:680px;margin:auto;padding:18px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.card,.section{background:#fff;border-radius:20px;padding:18px;box-shadow:0 5px 18px #00000012}.card{cursor:pointer}
-.icon{font-size:32px}.card h3{margin:9px 0 4px}.card p{margin:0;color:#666;font-size:14px}
-.section{display:none;margin-top:18px}.section.active{display:block}.back{border:0;padding:9px 13px;border-radius:10px;cursor:pointer}
-button{border:0;background:#7657e8;color:#fff;padding:11px 15px;border-radius:11px;cursor:pointer;margin:4px}
-input,textarea{width:100%;padding:12px;margin:7px 0;border:1px solid #ddd;border-radius:10px}
-footer{text-align:center;padding:25px;color:#777;font-size:13px}
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#fff0f7,#eef6ff);
+  color:#333;
+  min-height:100vh;
+}
+
+header{
+  background:linear-gradient(135deg,#ff69a8,#8b5cf6);
+  color:white;
+  padding:25px 15px;
+  text-align:center;
+  border-radius:0 0 25px 25px;
+}
+
+header h1{
+  font-size:30px;
+}
+
+header p{
+  margin-top:7px;
+}
+
+.container{
+  width:92%;
+  max-width:700px;
+  margin:20px auto;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  margin:15px 0;
+  border-radius:18px;
+  box-shadow:0 5px 18px rgba(0,0,0,.08);
+}
+
+h2{
+  margin-bottom:15px;
+  color:#7c3aed;
+}
+
+input,select,textarea{
+  width:100%;
+  padding:13px;
+  margin:8px 0 14px;
+  border:1px solid #ddd;
+  border-radius:12px;
+  font-size:15px;
+}
+
+textarea{
+  min-height:130px;
+  resize:vertical;
+}
+
+button{
+  border:0;
+  padding:12px 18px;
+  border-radius:12px;
+  background:#8b5cf6;
+  color:white;
+  font-size:15px;
+  cursor:pointer;
+  margin:5px;
+}
+
+button:hover{
+  opacity:.9;
+}
+
+.main-btn{
+  width:100%;
+  margin:7px 0;
+  padding:15px;
+  font-size:16px;
+}
+
+.back{
+  background:#555;
+}
+
+.logout{
+  background:#ef4444;
+}
+
+.hidden{
+  display:none;
+}
+
+.profile-box{
+  background:#faf5ff;
+  border-radius:15px;
+  padding:15px;
+  margin-bottom:15px;
+}
+
+.note{
+  border-left:5px solid #8b5cf6;
+  background:#fafafa;
+  padding:15px;
+  margin:12px 0;
+  border-radius:10px;
+}
+
+.note h3{
+  color:#7c3aed;
+  margin-bottom:8px;
+}
+
+.subject{
+  font-weight:bold;
+  color:#db2777;
+}
+
+.small{
+  color:#666;
+  font-size:13px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+@media(max-width:500px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+}
+
+footer{
+  text-align:center;
+  padding:25px;
+  color:#777;
+}
 </style>
 </head>
+
 <body>
+
 <header>
-<h1>🌸 Muskan Study</h1>
-<p>Learn • Practice • Grow</p>
-<span class="tag">Created & Designed by Muskan</span>
+  <h1>🌸 Muskan Study</h1>
+  <p>Learn • Practice • Grow</p>
+  <p>Created & Designed by Muskan</p>
 </header>
-<main>
-<div id="home" class="grid">
-<div class="card" onclick="show('notes')"><div class="icon">📚</div><h3>Notes</h3><p>Subjects और chapter-wise notes</p></div>
-<div class="card" onclick="show('quiz')"><div class="icon">📝</div><h3>MCQ Quiz</h3><p>अपनी तैयारी check करें</p></div>
-<div class="card" onclick="show('time')"><div class="icon">⏰</div><h3>Study Time</h3><p>अपना timetable बनाएँ</p></div>
-<div class="card" onclick="show('doubt')"><div class="icon">💬</div><h3>Doubt Box</h3><p>अपने doubts लिखें</p></div>
-<div class="card" onclick="show('inclusive')"><div class="icon">🌈</div><h3>Inclusive Education</h3><p>हर student के लिए learning</p></div>
-<div class="card" onclick="show('about')"><div class="icon">👩‍🎓</div><h3>About</h3><p>App और creator के बारे में</p></div>
+
+
+<div class="container">
+
+
+<!-- ================= LOGIN ================= -->
+
+<section id="loginPage" class="card">
+
+<h2>🔐 Student Login</h2>
+
+<label>Username</label>
+<input id="loginUsername" type="text" placeholder="Apna username">
+
+<label>Password</label>
+<input id="loginPassword" type="password" placeholder="Password">
+
+<button class="main-btn" onclick="login()">Login</button>
+
+<button class="main-btn" onclick="showSignup()">
+  📝 Create New Account
+</button>
+
+<p id="loginMessage" class="small"></p>
+
+</section>
+
+
+<!-- ================= SIGNUP ================= -->
+
+<section id="signupPage" class="card hidden">
+
+<h2>📝 Create Student Account</h2>
+
+<label>Full Name</label>
+<input id="name" type="text" placeholder="Apna poora naam">
+
+<label>Username</label>
+<input id="username" type="text" placeholder="Jaise: muskan11">
+
+<label>Student ID</label>
+<input id="studentId" type="text" placeholder="Jaise: MSK001">
+
+<label>Class</label>
+
+<select id="studentClass">
+  <option value="">Select Class</option>
+  <option value="9">Class 9</option>
+  <option value="10">Class 10</option>
+  <option value="11">Class 11</option>
+  <option value="12">Class 12</option>
+</select>
+
+<label>Email</label>
+<input id="email" type="email" placeholder="Email">
+
+<label>Password</label>
+<input id="password" type="password" placeholder="Password">
+
+<button class="main-btn" onclick="createAccount()">
+  ✅ Create Account
+</button>
+
+<button class="main-btn back" onclick="showLogin()">
+  ← Back to Login
+</button>
+
+<p id="signupMessage" class="small"></p>
+
+</section>
+
+
+<!-- ================= HOME ================= -->
+
+<section id="homePage" class="hidden">
+
+<div class="card">
+
+<h2>👋 Welcome, <span id="welcomeName"></span>!</h2>
+
+<div class="profile-box">
+  <p><b>👤 Username:</b> <span id="showUsername"></span></p>
+  <p><b>🆔 Student ID:</b> <span id="showStudentId"></span></p>
+  <p><b>🎓 Class:</b> <span id="showClass"></span></p>
+  <p><b>📧 Email:</b> <span id="showEmail"></span></p>
 </div>
 
-<div id="notes" class="section"><button class="back" onclick="home()">← Back</button><h2>📚 Notes</h2><p>Class 11 subjects के notes यहाँ जोड़े जा सकते हैं:</p><ul><li>History</li><li>Sociology</li><li>Hindi</li><li>English</li></ul></div>
+</div>
 
-<div id="quiz" class="section"><button class="back" onclick="home()">← Back</button><h2>📝 MCQ Quiz</h2><p><b>समावेशी शिक्षा का उद्देश्य क्या है?</b></p><button onclick="quiz(false)">केवल कुछ बच्चों को पढ़ाना</button><button onclick="quiz(true)">सभी बच्चों को साथ सीखने का अवसर देना</button><p id="ans"></p></div>
 
-<div id="time" class="section"><button class="back" onclick="home()">← Back</button><h2>⏰ Study Timetable</h2><input placeholder="Subject"><input placeholder="Time"><button onclick="alert('Study plan saved!')">Save Plan</button></div>
+<div class="grid">
 
-<div id="doubt" class="section"><button class="back" onclick="home()">← Back</button><h2>💬 Doubt Box</h2><textarea rows="5" placeholder="अपना doubt यहाँ लिखें..."></textarea><button onclick="alert('Your doubt has been saved!')">Submit</button></div>
+<button class="main-btn" onclick="showSection('notesPage')">
+📚 Notes
+</button>
 
-<div id="inclusive" class="section"><button class="back" onclick="home()">← Back</button><h2>🌈 Inclusive Education</h2><p>यह section अलग-अलग learning needs वाले students के लिए पढ़ाई को अधिक आसान और accessible बनाने के विचार पर आधारित है।</p></div>
+<button class="main-btn" onclick="showSection('quizPage')">
+📝 MCQ Quiz
+</button>
 
-<div id="about" class="section"><button class="back" onclick="home()">← Back</button><h2>👩‍🎓 About Muskan Study</h2><p><b>App concept:</b> Students के लिए एक simple educational companion.</p><p><b>Created & Designed by:</b> Muskan</p></div>
+<button class="main-btn" onclick="showSection('studyPage')">
+⏱️ Study Time
+</button>
 
-<footer>Muskan Study 🌸 | Learn Today, Lead Tomorrow</footer>
-</main>
+<button class="main-btn" onclick="showSection('doubtPage')">
+❓ Doubt Box
+</button>
+
+<button class="main-btn" onclick="showSection('profilePage')">
+👤 My Profile
+</button>
+
+<button class="main-btn" onclick="showSection('aboutPage')">
+ℹ️ About
+</button>
+
+</div>
+
+<div class="card">
+
+<button class="main-btn logout" onclick="logout()">
+🚪 Logout
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================= NOTES ================= -->
+
+<section id="notesPage" class="card hidden">
+
+<button class="back" onclick="home()">← Back</button>
+
+<h2>📚 School Notes</h2>
+
+<p>Class-wise aur subject-wise notes</p>
+
+
+<details class="card">
+
+<summary>📘 Class 9</summary>
+
+<p>📖 Hindi</p>
+<p>📖 English</p>
+<p>📖 Science</p>
+<p>📖 Mathematics</p>
+<p>📖 Social Science</p>
+
+</details>
+
+
+<details class="card">
+
+<summary>📗 Class 10</summary>
+
+<p>📖 Hindi</p>
+<p>📖 English</p>
+<p>📖 Science</p>
+<p>📖 Mathematics</p>
+<p>📖 Social Science</p>
+
+</details>
+
+
+<details class="card">
+
+<summary>📙 Class 11</summary>
+
+<p>📖 Hindi</p>
+<p>📖 English</p>
+<p>📖 History</p>
+<p>📖 Sociology</p>
+<p>📖 Home Science</p>
+<p>📖 Geography</p>
+<p>📖 Political Science</p>
+
+</details>
+
+
+<details class="card">
+
+<summary>📕 Class 12</summary>
+
+<p>📖 Hindi</p>
+<p>📖 English</p>
+<p>📖 History</p>
+<p>📖 Sociology</p>
+<p>📖 Home Science</p>
+<p>📖 Geography</p>
+<p>📖 Political Science</p>
+
+</details>
+
+</section>
+
+
+<!-- ================= QUIZ ================= -->
+
+<section id="quizPage" class="card hidden">
+
+<button class="back" onclick="home()">← Back</button>
+
+<h2>📝 MCQ Quiz</h2>
+
+<p><b>Question:</b></p>
+
+<p>भारत की राजधानी क्या है?</p>
+
+<button onclick="quizAnswer('Delhi')">A. Delhi</button>
+<button onclick="quizAnswer('Mumbai')">B. Mumbai</button>
+<button onclick="quizAnswer('Jaipur')">C. Jaipur</button>
+
+<p id="quizResult"></p>
+
+</section>
+
+
+<!-- ================= STUDY TIME ================= -->
+
+<section id="studyPage" class="card hidden">
+
+<button class="back" onclick="home()">← Back</button>
+
+<h2>⏱️ Study Time</h2>
+
+<p>आज कितने समय पढ़ाई की?</p>
+
+<input id="studyMinutes" type="number" placeholder="Minutes">
+
+<button onclick="saveStudyTime()">💾 Save</button>
+
+<p id="studyResult"></p>
+
+</section>
+
+
+<!-- ================= DOUBT BOX ================= -->
+
+<section id="doubtPage" class="card hidden">
+
+<button class="back" onclick="home()">← Back</button>
+
+<h2>❓ Doubt Box</h2>
+
+<textarea id="doubt" placeholder="Apna doubt yahan likho..."></textarea>
+
+<button onclick="sendDoubt()">📩 Submit Doubt</button>
+
+<p id="doubtResult"></p>
+
+</section>
+
+
+<!-- ================= PROFILE ================= -->
+
+<section id="profilePage" class="card hidden">
+
+<button class="back" onclick="home()">← Back</button>
+
+<h2>👤 My Profile</h2>
+
+<div class="profile-box">
+
+<p><b>Name:</b> <span id="profileName"></span></p>
+
+<p><b>Username:</b> <span id="profileUsername"></span></p>
+
+<p><b>Student ID:</b> <span id="profileId"></span></p>
+
+<p><b>Class:</b> <span id="profileClass"></span></p>
+
+<p><b>Email:</b> <span id="profileEmail"></span></p>
+
+</div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="aboutPage" class="card hidden">
+
+<button class="back" onclick="home()">← Back</button>
+
+<h2>ℹ️ About Muskan Study</h2>
+
+<p>
+Muskan Study ek student-friendly study website hai
+jahan students notes, quizzes aur study tools use kar sakte hain.
+</p>
+
+<br>
+
+<p>
+🌸 Created & Designed by Muskan
+</p>
+
+</section>
+
+
+<footer>
+🌸 Muskan Study • Learn • Practice • Grow
+</footer>
+
+</div>
+
+
 <script>
-function show(id){document.getElementById('home').style.display='none';document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById(id).classList.add('active')}
-function home(){document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));document.getElementById('home').style.display='grid'}
-function quiz(ok){document.getElementById('ans').textContent=ok?'✅ सही जवाब!':'❌ फिर से कोशिश करें।'}
+
+/* ================= ACCOUNT ================= */
+
+function createAccount(){
+
+  const name = document.getElementById("name").value.trim();
+  const username = document.getElementById("username").value.trim();
+  const studentId = document.getElementById("studentId").value.trim();
+  const studentClass = document.getElementById("studentClass").value;
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+
+  if(!name || !username || !studentId || !studentClass || !email || !password){
+
+    document.getElementById("signupMessage").innerText =
+      "⚠️ Sabhi details bharna zaroori hai.";
+
+    return;
+  }
+
+  const account = {
+    name:name,
+    username:username,
+    studentId:studentId,
+    studentClass:studentClass,
+    email:email,
+    password:password
+  };
+
+  localStorage.setItem("muskanStudyAccount",JSON.stringify(account));
+
+  document.getElementById("signupMessage").innerText =
+    "✅ Account ban gaya! Ab Login karo.";
+
+}
+
+
+/* ================= LOGIN ================= */
+
+function login(){
+
+  const username =
+    document.getElementById("loginUsername").value.trim();
+
+  const password =
+    document.getElementById("loginPassword").value;
+
+  const saved =
+    localStorage.getItem("muskanStudyAccount");
+
+  if(!saved){
+
+    document.getElementById("loginMessage").innerText =
+      "⚠️ Pehle Create Account karo.";
+
+    return;
+  }
+
+  const account = JSON.parse(saved);
+
+  if(username === account.username &&
+     password === account.password){
+
+    localStorage.setItem("muskanLoggedIn","yes");
+
+    loadHome();
+
+  }else{
+
+    document.getElementById("loginMessage").innerText =
+      "❌ Username ya password galat hai.";
+
+  }
+
+}
+
+
+/* ================= SHOW SIGNUP ================= */
+
+function showSignup(){
+
+  document.getElementById("loginPage").classList.add("hidden");
+
+  document.getElementById("signupPage").classList.remove("hidden");
+
+}
+
+
+/* ================= SHOW LOGIN ================= */
+
+function showLogin(){
+
+  document.getElementById("signupPage").classList.add("hidden");
+
+  document.getElementById("loginPage").classList.remove("hidden");
+
+}
+
+
+/* ================= LOAD HOME ================= */
+
+function loadHome(){
+
+  const saved =
+    localStorage.getItem("muskanStudyAccount");
+
+  if(!saved) return;
+
+  const account = JSON.parse(saved);
+
+  document.getElementById("loginPage").classList.add("hidden");
+  document.getElementById("signupPage").classList.add("hidden");
+  document.getElementById("homePage").classList.remove("hidden");
+
+  document.getElementById("welcomeName").innerText =
+    account.name;
+
+  document.getElementById("showUsername").innerText =
+    account.username;
+
+  document.getElementById("showStudentId").innerText =
+    account.studentId;
+
+  document.getElementById("showClass").innerText =
+    "Class " + account.studentClass;
+
+  document.getElementById("showEmail").innerText =
+    account.email;
+
+  document.getElementById("profileName").innerText =
+    account.name;
+
+  document.getElementById("profileUsername").innerText =
+    account.username;
+
+  document.getElementById("profileId").innerText =
+    account.studentId;
+
+  document.getElementById("profileClass").innerText =
+    "Class " + account.studentClass;
+
+  document.getElementById("profileEmail").innerText =
+    account.email;
+
+}
+
+
+/* ================= SECTIONS ================= */
+
+function showSection(id){
+
+  document.getElementById("homePage").classList.add("hidden");
+
+  const sections = [
+    "notesPage",
+    "quizPage",
+    "studyPage",
+    "doubtPage",
+    "profilePage",
+    "aboutPage"
+  ];
+
+  sections.forEach(function(section){
+
+    document.getElementById(section).classList.add("hidden");
+
+  });
+
+  document.getElementById(id).classList.remove("hidden");
+
+}
+
+
+/* ================= HOME ================= */
+
+function home(){
+
+  const sections = [
+    "notesPage",
+    "quizPage",
+    "studyPage",
+    "doubtPage",
+    "profilePage",
+    "aboutPage"
+  ];
+
+  sections.forEach(function(section){
+
+    document.getElementById(section).classList.add("hidden");
+
+  });
+
+  document.getElementById("homePage").classList.remove("hidden");
+
+}
+
+
+/* ================= LOGOUT ================= */
+
+function logout(){
+
+  localStorage.removeItem("muskanLoggedIn");
+
+  document.getElementById("homePage").classList.add("hidden");
+
+  document.getElementById("loginPage").classList.remove("hidden");
+
+}
+
+
+/* ================= QUIZ ================= */
+
+function quizAnswer(answer){
+
+  if(answer === "Delhi"){
+
+    document.getElementById("quizResult").innerText =
+      "✅ Correct Answer!";
+
+  }else{
+
+    document.getElementById("quizResult").innerText =
+      "❌ Wrong Answer!";
+
+  }
+
+}
+
+
+/* ================= STUDY TIME ================= */
+
+function saveStudyTime(){
+
+  const minutes =
+    document.getElementById("studyMinutes").value;
+
+  if(!minutes){
+
+    document.getElementById("studyResult").innerText =
+      "⚠️ Minutes enter karo.";
+
+    return;
+  }
+
+  document.getElementById("studyResult").innerText =
+    "✅ Aaj " + minutes + " minutes study save hui.";
+
+}
+
+
+/* ================= DOUBT ================= */
+
+function sendDoubt(){
+
+  const doubt =
+    document.getElementById("doubt").value.trim();
+
+  if(!doubt){
+
+    document.getElementById("doubtResult").innerText =
+      "⚠️ Pehle doubt likho.";
+
+    return;
+  }
+
+  document.getElementById("doubtResult").innerText =
+    "✅ Doubt submit ho gaya.";
+
+}
+
+
+/* ================= AUTO LOGIN ================= */
+
+window.onload = function(){
+
+  const loggedIn =
+    localStorage.getItem("muskanLoggedIn");
+
+  if(loggedIn === "yes"){
+
+    loadHome();
+
+  }
+
+};
+
 </script>
+
 </body>
-</html>
+  </html>
